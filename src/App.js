@@ -27,10 +27,11 @@ function App() {
     formData.append('fps', fps);
 
     try {
-      const response = await fetch('https://srt-to-fcpxml-backend.onrender.com', {
+      const response = await fetch('https://srt-to-fcpxml-backend.onrender.com/convert', {
         method: 'POST',
         body: formData,
       });
+    
 
       if (response.ok) {
         const blob = await response.blob();
