@@ -31,7 +31,6 @@ function App() {
         method: 'POST',
         body: formData,
       });
-    
 
       if (response.ok) {
         const blob = await response.blob();
@@ -53,19 +52,21 @@ function App() {
 
   return (
     <div className="App">
-      <h1>SRT to FCPXML Converter</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <header className="App-header">
+        <h1>SRT to FCPXML Converter</h1>
+      </header>
+      <form onSubmit={handleSubmit} className="App-form">
+        <div className="form-group">
           <label>Select SRT file:</label>
           <input type="file" accept=".srt" onChange={handleFileChange} />
         </div>
-        <div>
+        <div className="form-group">
           <label>Enter FPS:</label>
           <input type="text" value={fps} onChange={handleFpsChange} placeholder="e.g., 29.97" />
         </div>
-        <button type="submit">Convert</button>
+        <button type="submit" className="convert-button">Convert</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="message">{message}</p>}
     </div>
   );
 }
